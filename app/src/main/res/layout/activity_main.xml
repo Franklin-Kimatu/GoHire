@@ -23,7 +23,7 @@
         android:textColor="@color/colorHeader"/>
 
     <Button
-        android:id="@+id/viewAvailableCars"
+        android:id="@+id/viewAvailableCarsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
