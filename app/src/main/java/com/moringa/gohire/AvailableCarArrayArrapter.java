@@ -17,7 +17,7 @@ public class AvailableCarArrayArrapter extends ArrayAdapter {
 
     @Override
     public int getCount() {
-        return super.getCount();
+        return mAvailableCarModels.length;
     }
 
 
