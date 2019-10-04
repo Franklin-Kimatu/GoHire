@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="carmodels">
+        <item>Ranger rover</item>
+        <item>Toyota V8</item>
+        <item>Mercedes C220</item>
+        <item>Mercedes E250</item>
+        <item>BMW X5</item>
+        <item>Mazda CX5</item>
+        <item>Mazda Axela</item>
+        <item>Subaru Forester</item>
+        <item>Subaru Legacy</item>
+        <item>Subaru Outback</item>
+
+    </string-array>
+</resources>
