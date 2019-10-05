@@ -9,7 +9,7 @@
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/carhire" />
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
