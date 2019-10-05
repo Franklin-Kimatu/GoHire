@@ -1,6 +1,9 @@
 package com.moringa.gohire;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -25,5 +28,13 @@ public class AvailableCar_activity extends AppCompatActivity {
 
         AvailableCarArrayArrapter adapter =new AvailableCarArrayArrapter(this,android.R.layout.simple_list_item_1,carsAvailable,yearOfRelease);
         mListView.setAdapter(adapter);
+
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(AvailableCar_activity.this,individual_details_activity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
