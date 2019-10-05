@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">GoHire</string>
+    <string name="title_activity_individual_details_activity">individual_details_activity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 </resources>
