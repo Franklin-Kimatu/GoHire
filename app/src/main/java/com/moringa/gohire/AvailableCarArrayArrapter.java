@@ -7,8 +7,8 @@ import android.widget.ArrayAdapter;
 
 
 public class AvailableCarArrayArrapter extends ArrayAdapter {
-    public AvailableCarArrayArrapter( Context context, int resource, Context mContext, String[] mAvailableCarModels, String[] mYearOfRelease) {
-        super(context, resource);
+    public AvailableCarArrayArrapter( Context mContext, int resource,  String[] mAvailableCarModels, String[] mYearOfRelease) {
+        super(mContext, resource);
         this.mContext = mContext;
         this.mAvailableCarModels = mAvailableCarModels;
         this.mYearOfRelease = mYearOfRelease;
@@ -23,9 +23,9 @@ public class AvailableCarArrayArrapter extends ArrayAdapter {
 
     @Override
     public Object getItem(int position) {
-        String availablecar =mAvailableCarModels[position];
+        String availableCar =mAvailableCarModels[position];
         String realeseYear =mYearOfRelease[position];
-        return String.format("%s \n Year of release: %s",availablecar,realeseYear);
+        return String.format("%s \nYear of release: %s",availableCar,realeseYear);
     }
 
     private Context mContext;
