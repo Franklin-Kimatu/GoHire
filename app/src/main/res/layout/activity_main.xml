@@ -31,5 +31,17 @@
         android:text="View available cars"
         android:textSize="14sp" />
 
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/viewAvailableCarsButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="@color/colorHeader"
+        android:hint="Enter your name"
+        android:inputType="textPersonName|text"
+        android:padding="5dp" />
+
 
 </RelativeLayout>
