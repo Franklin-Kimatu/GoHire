@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     @BindView(R.id.viewAvailableCarsButton) Button mViewAvailableCarsButton;
     @BindView(R.id.textViewHeader) TextView mTextViewHeader;
-    @BindView(R.id.nameEditText) EditText mNameEditText
+    @BindView(R.id.nameEditText) EditText mNameEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if(v==mViewAvailableCarsButton){
+          String name = mNameEditText.getText().toString();
             Intent intent= new Intent(MainActivity.this,AvailableCar_activity.class);
+            intent.putExtra("name",name);
             startActivity(intent);
         }
     }
