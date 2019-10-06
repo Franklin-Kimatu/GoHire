@@ -5,7 +5,9 @@
     <TextView
         android:id="@+id/nameTextView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:text="Available cars for hire" />
 
     <ListView
@@ -14,6 +16,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:layout_below="@id/nameTextView"
         android:scrollbarAlwaysDrawHorizontalTrack="true" >
 
     </ListView>

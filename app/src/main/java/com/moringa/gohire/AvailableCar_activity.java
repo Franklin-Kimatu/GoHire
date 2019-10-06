@@ -19,6 +19,7 @@ public class AvailableCar_activity extends AppCompatActivity {
     @BindView(R.id.listView) ListView mListView;
 
 
+
     private String[] carsAvailable =new String[]{"Ranger rover","Toyota V8","Mercedes C220","BMW X5","Mazda CX5","Mazda Axela","Subaru Forester","Subaru Legacy","Subaru Outback"};
 
     private String[] yearOfRelease =new String[]{"2019","2012","2012","2010","2015","2016","2017","2012","2015"};

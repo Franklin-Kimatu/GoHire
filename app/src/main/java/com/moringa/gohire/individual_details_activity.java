@@ -27,7 +27,7 @@ public class individual_details_activity extends AppCompatActivity {
     private String[] availableDriver =new String[]{"Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes","Yes"};
     private String[] amountPerDay=new String[]{"Kshs.100,000/day","Kshs.80,000/day","Kshs.70,000/day","Kshs.30,000/day","Kshs.10,000/day","Kshs.10,000/day","Kshs.15,000/day","Kshs.25,000/day","Kshs.9,000/day","Kshs.10,000/day"};
     private int i;
-
+//
 //    @BindView(R.id.textViewModel) TextView mCarModel;
 //    @BindView(R.id.textViewInsurance) TextView mInsuranceCover;
 //    @BindView(R.id.textViewCondion) TextView mVehicleCondition;
@@ -45,6 +45,7 @@ public class individual_details_activity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
 
        ButterKnife.bind(this);
+
 
         customDetailsAdapter adapter = new customDetailsAdapter(this,android.R.layout.simple_list_item_1,carsAvailable,insuranceCover,vehicleCondtion,availableDriver,amountPerDay);
 
