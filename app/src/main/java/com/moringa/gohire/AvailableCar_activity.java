@@ -7,9 +7,12 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.w3c.dom.Text;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,13 +37,19 @@ public class AvailableCar_activity extends AppCompatActivity {
         AvailableCarArrayArrapter adapter = new AvailableCarArrayArrapter(this, android.R.layout.simple_list_item_1, carsAvailable, yearOfRelease);
         mListView.setAdapter(adapter);
 
+
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                String car = ((TextView)view).getText().toString();
+                Toast.makeText(AvailableCar_activity.this,car,Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(AvailableCar_activity.this, individual_details_activity.class);
                 startActivity(intent);
             }
         });
+
+
 
         Intent intent = getIntent();
         String name =intent.getStringExtra("name");
