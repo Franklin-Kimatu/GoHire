@@ -10,6 +10,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -26,5 +28,18 @@ public class MainActivityTest {
     public void validateEditText(){
         onView(withId(R.id.nameEditText)).perform(typeText("Frank"))
                 .check(matches(withText("Frank")));
+    }
+    @Test
+    public void nameIsSentToAvailableCarActivity(){
+        String name ="Frank";
+        onView(withId(R.id.nameEditText)).perform(typeText(name)).perform(closeSoftKeyboard());
+        try{
+            Thread.sleep(300);
+        }catch (InterruptedException e){
+            System.out.println("got interrupted");
+        }
+        onView(withId(R.id.viewAvailableCarsButton)).perform(click());
+        onView(withId(R.id.nameTextView)).check(matches(withText("Hello " +name +",\n" +"Here are some of vehicles you can hire.")));
+
     }
 }
