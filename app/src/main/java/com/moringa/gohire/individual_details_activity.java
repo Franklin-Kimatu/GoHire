@@ -59,11 +59,6 @@ public class individual_details_activity extends AppCompatActivity {
             }
         });
 
-//        Intent intent = getIntent();
-//        mCarModel.setText(carsAvailable[i]);
-//        mInsuranceCover.setText(insuranceCover[i]);
-//        mVehicleCondition.setText(vehicleCondtion[i]);
-//        mAvailableDriver.setText(availableDriver[i]);
-//        mAmountToPay.setText(amountPerDay[i]);
+//        wo
     }
 }
