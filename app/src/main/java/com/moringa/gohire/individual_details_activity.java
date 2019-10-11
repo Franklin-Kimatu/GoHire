@@ -40,9 +40,9 @@ public class individual_details_activity extends AppCompatActivity {
 
        ButterKnife.bind(this);
 
-
-        customDetailsAdapter adapter = new customDetailsAdapter(this,android.R.layout.simple_list_item_1,carsAvailable,insuranceCover,vehicleCondtion,availableDriver,amountPerDay);
-//        mCarModel.setAdapter(adapter);
+//
+//        customDetailsAdapter adapter = new customDetailsAdapter(this,android.R.layout.simple_list_item_1,carsAvailable,insuranceCover,vehicleCondtion,availableDriver,amountPerDay);
+////        mCarModel.setAdapter(adapter);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
