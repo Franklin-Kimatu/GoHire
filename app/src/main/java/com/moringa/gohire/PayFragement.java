@@ -1,4 +1,4 @@
-package com.moringa.gohire.ui.main;
+package com.moringa.gohire;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,12 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.moringa.gohire.R;
-
-public class Fragment2 extends Fragment {
+public class PayFragement extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment2,container,false);
+        return inflater.inflate(R.layout.fragment_pay,container,false);
     }
 }

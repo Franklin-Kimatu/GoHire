@@ -1,47 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:backgroundTint="@color/colorPrimary">
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/carhire" />
-    <TextView
-        android:id="@+id/textViewHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentBottom="false"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:text="GoHire"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:textColor="@color/colorHeader"/>
+   />
+<FrameLayout
+    android:id="@+id/fragement_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@id/bottom_navigation">
 
-    <Button
-        android:id="@+id/viewAvailableCarsButton"
+   </FrameLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="View available cars"
-        android:textSize="14sp" />
-
-    <EditText
-        android:id="@+id/nameEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/viewAvailableCarsButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
-        android:background="@color/colorHeader"
-        android:hint="Enter your name"
-        android:inputType="textPersonName|text"
-        android:padding="5dp" />
+        app:menu="@menu/bottom_navigation"
+        app:itemIconTint="@color/colorBlue"
+        app:itemTextColor="@color/colorBlue"
+        android:background="?android:attr/windowBackground"/>
 
 
 </RelativeLayout>
