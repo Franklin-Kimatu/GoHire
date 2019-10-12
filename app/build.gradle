@@ -15,6 +15,16 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+//    buildTypes.each{
+//        it.buildConfigField 'String','DARAJA_CONSUMER_KEY' CONSUMER_KEY
+//        it.buildConfigField 'String', 'DARAJA_CONSUMER_SECRET_KEY' CONSUMER_SECRET_KEY
+//        it.buildConfigField 'String', 'ACCESS_TOKEN' Access_token
+//    }
+    buildTypes.each {
+        it.buildConfigField 'String','DARAJA_CONSUMER_KEY', CONSUMER_KEY
+        it.buildConfigField 'String', 'DARAJA_CONSUMER_SECRET', CONSUMER_SECRET_KEY
+        it.buildConfigField 'String', 'ACCESS_TOKEN',Access_token
+    }
     buildTypes {
         release {
             minifyEnabled false
