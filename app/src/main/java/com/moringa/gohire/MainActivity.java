@@ -6,11 +6,14 @@ import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -34,6 +37,25 @@ public class MainActivity extends AppCompatActivity{
         getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container,new HomeFragment()).commit();
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater =getMenuInflater();
+        inflater.inflate(R.menu.dropdown,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.addMember:
+                Toast.makeText(this,"Member will be added to the database",Toast.LENGTH_SHORT).show();
+                return true;
+            }
+            return super.onOptionsItemSelected(item);
+        }
+
+
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
