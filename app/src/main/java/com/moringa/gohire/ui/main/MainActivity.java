@@ -13,6 +13,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -26,8 +28,11 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
+    private static final String[] years =new String[]{"2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019"};
 
-    @BindView(R.id.editTextTeam) EditText mEditTextTeam;
+
+
+    @BindView(R.id.editTextTeam) AutoCompleteTextView mEditTextTeam;
 
     @BindView(R.id.buttonPay) Button mNav_Pay;
 
@@ -37,9 +42,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+
+       ArrayAdapter<String> adapter =new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,years);
+       mEditTextTeam.setAdapter(adapter);
+
+
         mNav_Pay.setOnClickListener(this);
-
-
     }
 
     @Override
