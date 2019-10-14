@@ -12,16 +12,23 @@
 <!--   />-->
 
 
-    <EditText
+<!--    <EditText-->
+<!--        android:id="@+id/editTextTeam"-->
+<!--        android:layout_above="@+id/buttonPay"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:ems="10"-->
+<!--        android:inputType="textPersonName"-->
+<!--        android:hint="Enter team" />-->
+    <AutoCompleteTextView
         android:id="@+id/editTextTeam"
-        android:layout_above="@+id/buttonPay"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Enter team" />
+        android:hint="Select a year"
+        android:completionThreshold="1"
+        android:completionHint="Select a year"/>
 
     <Button
         android:id="@+id/buttonPay"
