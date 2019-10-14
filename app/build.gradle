@@ -15,15 +15,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-//    buildTypes.each{
-//        it.buildConfigField 'String','DARAJA_CONSUMER_KEY' CONSUMER_KEY
-//        it.buildConfigField 'String', 'DARAJA_CONSUMER_SECRET_KEY' CONSUMER_SECRET_KEY
-//        it.buildConfigField 'String', 'ACCESS_TOKEN' Access_token
-//    }
+
     buildTypes.each {
-        it.buildConfigField 'String','DARAJA_CONSUMER_KEY', CONSUMER_KEY
-        it.buildConfigField 'String', 'DARAJA_CONSUMER_SECRET', CONSUMER_SECRET_KEY
-        it.buildConfigField 'String', 'ACCESS_TOKEN',Access_token
+        it.buildConfigField 'String', 'ACCESS_TOKEN', Access_token
     }
     buildTypes {
         release {
@@ -46,7 +40,8 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.1'
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
-
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'androidx.cardview:cardview:1.0.0'
 }

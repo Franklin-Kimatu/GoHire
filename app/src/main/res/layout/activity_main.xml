@@ -4,28 +4,33 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:backgroundTint="@color/colorPrimary">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-   />
-<FrameLayout
-    android:id="@+id/fragement_container"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_above="@id/bottom_navigation">
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:scaleType="centerCrop"-->
+<!--   />-->
 
-   </FrameLayout>
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
+
+    <EditText
+        android:id="@+id/editTextTeam"
+        android:layout_above="@+id/buttonPay"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Enter team" />
+
+    <Button
+        android:id="@+id/buttonPay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="See standings"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/bottom_navigation"
-        app:itemIconTint="@color/colorBlue"
-        app:itemTextColor="@color/colorBlue"
-        android:background="?android:attr/windowBackground"/>
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/roundedbutton"/>
 
 
 </RelativeLayout>

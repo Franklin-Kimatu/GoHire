@@ -1,11 +1,14 @@
-package com.moringa.gohire;
+package com.moringa.gohire.ui.main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.app.Activity;
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -16,14 +19,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.moringa.gohire.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
 
-    @BindView(R.id.bottom_navigation) BottomNavigationView mBottomNav;
+    @BindView(R.id.editTextTeam) EditText mEditTextTeam;
+
+    @BindView(R.id.buttonPay) Button mNav_Pay;
 
 
     @Override
@@ -31,10 +37,8 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        mNav_Pay.setOnClickListener(this);
 
-        mBottomNav.setOnNavigationItemSelectedListener(navListener);
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container,new HomeFragment()).commit();
 
     }
 
@@ -43,6 +47,17 @@ public class MainActivity extends AppCompatActivity{
         MenuInflater inflater =getMenuInflater();
         inflater.inflate(R.menu.dropdown,menu);
         return true;
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        if(v==mNav_Pay){
+            String stage =mEditTextTeam.getText().toString();
+            Intent intent = new Intent(MainActivity.this,StandingsList.class);
+            intent.putExtra("stage",stage);
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -56,23 +71,5 @@ public class MainActivity extends AppCompatActivity{
         }
 
 
-    private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-            Fragment selectedFragment = null;
-            switch(menuItem.getItemId()){
-                case R.id.nav_home:
-                    selectedFragment = new HomeFragment();
-                    break;
-                case R.id.nav_people:
-                    selectedFragment = new PeopleFragement();
-                    break;
-                case R.id.nav_pay:
-                    selectedFragment = new PayFragement();
-                    break;
-            }
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragement_container,selectedFragment).commit();
-            return true;
-        }
-    };
+
 }
