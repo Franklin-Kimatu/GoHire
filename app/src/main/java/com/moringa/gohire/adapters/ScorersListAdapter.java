@@ -60,7 +60,7 @@ public class ScorersListAdapter extends RecyclerView.Adapter<ScorersListAdapter.
         }
         public void bindScorer(Scorer player){
             mScorerNameTextView.setText(player.getPlayer().getName());
-            mNationalityTextView.setText(player.getPlayer().getNationality());
+            mNationalityTextView.setText("Nationality: "+player.getPlayer().getNationality());
         }
     }
 }
