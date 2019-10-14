@@ -1,6 +1,7 @@
 package com.moringa.gohire.ui.main;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -23,6 +24,7 @@ import com.moringa.gohire.ScorersApi;
 import com.moringa.gohire.ScorersClient;
 import com.moringa.gohire.ScorersResponse;
 import com.moringa.gohire.Team;
+import com.moringa.gohire.adapters.ScorersListAdapter;
 ;
 
 
@@ -37,12 +39,13 @@ import retrofit2.Response;
 
 public class StandingsList extends AppCompatActivity {
 
-//    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
-    @BindView(R.id.teamTextView) TextView mTeamTextView;
+    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
+//    @BindView(R.id.teamTextView) TextView mTeamTextView;
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
-    @BindView(R.id.liistView) ListView mListViewStandings;
-
+//    @BindView(R.id.liistView) ListView mListViewStandings;
+    private ScorersListAdapter mAdapter;
+    public List<Scorer> scorers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +58,7 @@ public class StandingsList extends AppCompatActivity {
         String stage = intent.getStringExtra("stage");
 
 
-        mTeamTextView.setText("Here are the scorers for the years " +stage);
+//        mTeamTextView.setText("Here are the scorers for the years " +stage);
 
 
         ScorersApi  client = ScorersClient.getHttpClient();
@@ -70,23 +73,19 @@ public class StandingsList extends AppCompatActivity {
                 hideProgressBar();
                 if (response.isSuccessful()){
 
-                    List<Scorer> scorersList =response.body().getScorers();
-                    String[] scorers = new String [scorersList.size()];
-                    String[] teams = new String[scorersList.size()];
+                    scorers =response.body().getScorers();
 
-                    for (int i = 0; i<scorers.length; i++){
-                        scorers[i] = scorersList.get(i).getPlayer().getName();
+                    mAdapter =new ScorersListAdapter(StandingsList.this,scorers);
 
-                    }
-                    for (int i= 0; i<teams.length; i++){
+                    mRecyclerView.setAdapter(mAdapter);
 
-                        teams[i] =Team.class.getName();
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(StandingsList.this);
 
-                    }
+                    mRecyclerView.setLayoutManager(layoutManager);
 
-                    ArrayAdapter adapter = new MyStandingAdapter(StandingsList.this,android.R.layout.simple_list_item_1,scorers,teams);
-                    mListViewStandings.setAdapter(adapter);
+                    mRecyclerView.setHasFixedSize(true);
                     showStandings();
+
 
                 }else{
                     showFailureMessage();
@@ -111,8 +110,8 @@ public class StandingsList extends AppCompatActivity {
     }
 
     private void showStandings() {
-        mListViewStandings.setVisibility(View.VISIBLE);
-        mTeamTextView.setVisibility(View.GONE);
+        mRecyclerView.setVisibility(View.VISIBLE);
+        ;
     }
 
     private void hideProgressBar() {
