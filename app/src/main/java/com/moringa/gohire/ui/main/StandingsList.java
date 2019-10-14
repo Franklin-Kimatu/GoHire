@@ -53,46 +53,7 @@ public class StandingsList extends AppCompatActivity {
 
         Intent intent = getIntent();
         String stage = intent.getStringExtra("stage");
-        // mTeamTextView.setText("Here are all standing for this stage" +stage);
 
-//        ScorersApi client = ScorersClient.getHttpClient();
-//        Call<StandingsResponse> call = client.getStandings(stage,"standings");
-//
-//        call.enqueue( new Callback<StandingsResponse>(){
-//            @Override
-//            public void onResponse(Call<StandingsResponse> call, Response<StandingsResponse> response) {
-//
-//                hideProgressBar();
-//                if (response.isSuccessful()) {
-//                    List<Standing> standingList = response.body().getStandings();
-//                    String[] standings = new String[standingList.size()];
-//                    Integer[] tables = new Integer[standingList.size()];
-//
-//                    for (int i = 0; i < standings.length; i++) {
-//                        standings[i] = standingList.get(i).getStage();
-//                    }
-//
-//                    for (int i = 0; i < tables.length; i++) {
-//                        Table table = standingList.get(i).getTable().get(0);
-//                        tables[i] = table.getPoints();
-//                    }
-//
-//                    ArrayAdapter adapter = new MyStandingAdapter(StandingsList.this, android.R.layout.simple_list_item_1, standings, tables);
-//                    mListViewStandings.setAdapter(adapter);
-//
-//                    showStandings();
-//
-//               }else {
-//                   showUnsuccessfulMessage();
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ScorersResponse> call1, Throwable t){
-//                hideProgressBar();
-//                showFailureMessage();
-//            }
-//        });
 
         mTeamTextView.setText("Here are the scorers for the years " +stage);
 
@@ -127,16 +88,6 @@ public class StandingsList extends AppCompatActivity {
                     mListViewStandings.setAdapter(adapter);
                     showStandings();
 
-//                    for (Scorer scorer:scorers){
-//                        String content ="";
-//                        content += scorer.getPlayer().getName() +"\n";
-//                        content += scorer.getNumberOfGoals().toString() +"\n";
-//                        content +=scorer.getTeam().getName() + "\n";
-//
-//
-//                        mTeamTextView.append(content);
-//
-//                    }
                 }else{
                     showFailureMessage();
                 }
@@ -161,6 +112,7 @@ public class StandingsList extends AppCompatActivity {
 
     private void showStandings() {
         mListViewStandings.setVisibility(View.VISIBLE);
+        mTeamTextView.setVisibility(View.GONE);
     }
 
     private void hideProgressBar() {
