@@ -6,13 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.StandingsList">
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentEnd="true"-->
-<!--        android:layout_marginTop="30dp"-->
-<!--        android:visibility="gone"-->
-<!--        android:id="@+id/recyclerView"/>-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/teamTextView"
+        android:visibility="gone"
+        android:id="@+id/recyclerView"/>
     <TextView
         android:id="@+id/teamTextView"
         android:layout_width="wrap_content"
