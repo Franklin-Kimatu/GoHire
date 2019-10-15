@@ -4,6 +4,9 @@ package com.moringa.gohire;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Player {
 
     @SerializedName("id")
@@ -149,6 +152,11 @@ public class Player {
 
     public void setLastUpdated(String lastUpdated) {
         this.lastUpdated = lastUpdated;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s",this.id,this.name,this.firstName,this.lastName,this.countryOfBirth,this.nationality,this.position,this.shirtNumber,this.lastUpdated);
     }
 
 }

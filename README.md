@@ -1,5 +1,5 @@
-# GoHire
-* Gohire application is an application that one can see the available car for hire.
+# Player centre app.
+* This is an application that targets of expose and celebrate the top scorers in all time in football.
 
 ## Getting Started
 * Click this link and clone the repository to your machine.

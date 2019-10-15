@@ -4,7 +4,12 @@ package com.moringa.gohire;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Area {
+import org.parceler.Parcel;
+
+@Parcel
+
+
+public class Team {
 
     @SerializedName("id")
     @Expose
@@ -17,7 +22,7 @@ public class Area {
      * No args constructor for use in serialization
      * 
      */
-    public Area() {
+    public Team() {
     }
 
     /**
@@ -25,7 +30,7 @@ public class Area {
      * @param id
      * @param name
      */
-    public Area(Integer id, String name) {
+    public Team(Integer id, String name) {
         super();
         this.id = id;
         this.name = name;
