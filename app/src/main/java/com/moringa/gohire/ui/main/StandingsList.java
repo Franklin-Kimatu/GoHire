@@ -41,7 +41,7 @@ import retrofit2.Response;
 public class StandingsList extends AppCompatActivity {
 
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
-//    @BindView(R.id.teamTextView) TextView mTeamTextView;
+    @BindView(R.id.teamTextView) TextView mTeamTextView;
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
 
@@ -59,7 +59,7 @@ public class StandingsList extends AppCompatActivity {
         String stage = intent.getStringExtra("stage");
 
 
-
+        mTeamTextView.setText("These are the top scorers in the year "+ stage);
 
 
         ScorersApi  client = ScorersClient.getHttpClient();
@@ -99,7 +99,8 @@ public class StandingsList extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ScorersResponse> call1,Throwable t){
-                showUnsuccessfulMessage();;
+                showUnsuccessfulMessage();
+                hideProgressBar();
             }
         });
    }
