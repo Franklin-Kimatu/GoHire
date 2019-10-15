@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/scorersNameTextView"
             android:textStyle="bold"
+            android:textSize="18sp"
             android:text="Scorers name"
             android:textColor="@color/colorBlue"/>
         <RelativeLayout

@@ -1,6 +1,7 @@
 package com.moringa.gohire.ui.main;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -43,7 +44,7 @@ public class StandingsList extends AppCompatActivity {
 //    @BindView(R.id.teamTextView) TextView mTeamTextView;
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
-//    @BindView(R.id.liistView) ListView mListViewStandings;
+
     private ScorersListAdapter mAdapter;
     public List<Scorer> scorers;
 
@@ -58,7 +59,7 @@ public class StandingsList extends AppCompatActivity {
         String stage = intent.getStringExtra("stage");
 
 
-//        mTeamTextView.setText("Here are the scorers for the years " +stage);
+
 
 
         ScorersApi  client = ScorersClient.getHttpClient();
@@ -81,9 +82,13 @@ public class StandingsList extends AppCompatActivity {
 
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(StandingsList.this);
 
+                    DividerItemDecoration itemDivider = new DividerItemDecoration(StandingsList.this,DividerItemDecoration.HORIZONTAL);
+
+
                     mRecyclerView.setLayoutManager(layoutManager);
 
                     mRecyclerView.setHasFixedSize(true);
+                    mRecyclerView.addItemDecoration(itemDivider);
                     showStandings();
 
 
