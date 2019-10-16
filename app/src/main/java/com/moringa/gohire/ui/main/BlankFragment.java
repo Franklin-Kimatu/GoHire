@@ -28,6 +28,8 @@ import butterknife.ButterKnife;
 public class BlankFragment extends Fragment {
 //    @BindView(R.id.scorerImageView) ImageView mScorerImageView;
     @BindView(R.id.scorersNameTextView) TextView mScorerNameTextView;
+    @BindView(R.id.firstNameTextView) TextView mFirstNameTextView;
+    @BindView(R.id.secondNameTextView) TextView mSecondNameTextView;
     @BindView(R.id.nationalityTextView) TextView mScorerNationalityTextView;
     @BindView(R.id.dateOfBirthTextView) TextView mDateOfBirthTextView;
     @BindView(R.id.countryBirthTextVIew) TextView mCountryTextView;
@@ -66,12 +68,14 @@ public class BlankFragment extends Fragment {
         ButterKnife.bind(this,view);
 
         //List<String> scorer = new ArrayList<>();
-        mScorerNameTextView.setText(mScorer.getPlayer().getName());
-        mScorerNationalityTextView.setText(mScorer.getPlayer().getNationality());
-        mDateOfBirthTextView.setText(mScorer.getPlayer().getDateOfBirth());
-        mCountryTextView.setText(mScorer.getPlayer().getCountryOfBirth());
+        mFirstNameTextView.setText("Firstname: "+mScorer.getPlayer().getFirstName());
+        mSecondNameTextView.setText("Secondname: "+mScorer.getPlayer().getLastName());
+        mScorerNameTextView.setText("Common name: "+mScorer.getPlayer().getName());
+        mScorerNationalityTextView.setText("Nationality: "+mScorer.getPlayer().getNationality());
+        mDateOfBirthTextView.setText("DOB: "+mScorer.getPlayer().getDateOfBirth());
+        mCountryTextView.setText("Country of birth: "+mScorer.getPlayer().getCountryOfBirth());
 //        mShirtNumberTextView.setText(mScorer.getPlayer().getShirtNumber());
-        mPositionTextView.setText(mScorer.getPlayer().getPosition());
+        mPositionTextView.setText("Position: "+mScorer.getPlayer().getPosition());
         return view;
 
     }
