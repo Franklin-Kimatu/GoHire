@@ -1,6 +1,7 @@
 package com.moringa.gohire.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringa.gohire.R;
-import com.moringa.gohire.Scorer;
+import com.moringa.gohire.models.Scorer;
+import com.moringa.gohire.ui.main.ScorersDetailActivity;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -46,10 +50,12 @@ public class ScorersListAdapter extends RecyclerView.Adapter<ScorersListAdapter.
         return mScorers.size();
     }
 
-    public class ScorerViewHolder extends RecyclerView.ViewHolder {
+    public class ScorerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @BindView(R.id.scorerImageView) ImageView ScorerImageView;
         @BindView(R.id.scorersNameTextView) TextView mScorerNameTextView;
         @BindView(R.id.nationalityTextView) TextView mNationalityTextView;
+        @BindView(R.id.goalsTextView) TextView mGoalsTextView;
+        @BindView(R.id.dateOfBirthTextView) TextView mDateOfBirthTextView;
 
         private Context mContext;
 
@@ -57,10 +63,22 @@ public class ScorersListAdapter extends RecyclerView.Adapter<ScorersListAdapter.
             super(itemView);
             ButterKnife.bind(this,itemView);
             mContext =itemView.getContext();
+            itemView.setOnClickListener(this);
         }
         public void bindScorer(Scorer player){
             mScorerNameTextView.setText(player.getPlayer().getName());
+            mDateOfBirthTextView.setText("Date of birth: " +player.getPlayer().getDateOfBirth());
+            mGoalsTextView.setText("Country of birth: "+player.getPlayer().getCountryOfBirth());
             mNationalityTextView.setText("Nationality: "+player.getPlayer().getNationality());
+        }
+
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();
+            Intent intent =  new Intent(mContext, ScorersDetailActivity.class);
+            intent.putExtra("position",itemPosition);
+            intent.putExtra("scorers", Parcels.wrap(mScorers));
+            mContext.startActivity(intent);
         }
     }
 }
