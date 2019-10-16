@@ -1,5 +1,5 @@
 
-package com.moringa.gohire;
+package com.moringa.gohire.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -7,18 +7,17 @@ import com.google.gson.annotations.SerializedName;
 import org.parceler.Parcel;
 
 @Parcel
-
 public class Scorer {
 
     @SerializedName("player")
     @Expose
-    private Player player;
+     Player player;
     @SerializedName("team")
     @Expose
-    private Team team;
+     Team team;
     @SerializedName("numberOfGoals")
     @Expose
-    private Integer numberOfGoals;
+     Integer numberOfGoals;
 
     /**
      * No args constructor for use in serialization

@@ -1,30 +1,34 @@
 
-package com.moringa.gohire;
+package com.moringa.gohire.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+//import org.parceler.Parcel;
+
+
+import android.os.Parcelable;
+
 import org.parceler.Parcel;
 
 @Parcel
-
 public class Season {
 
     @SerializedName("id")
     @Expose
-    private Integer id;
+     Integer id;
     @SerializedName("startDate")
     @Expose
-    private String startDate;
+     String startDate;
     @SerializedName("endDate")
     @Expose
-    private String endDate;
+     String endDate;
     @SerializedName("currentMatchday")
     @Expose
-    private Integer currentMatchday;
+     Integer currentMatchday;
     @SerializedName("winner")
     @Expose
-    private Object winner;
+     String winner;
 
     /**
      * No args constructor for use in serialization
@@ -41,7 +45,7 @@ public class Season {
      * @param winner
      * @param endDate
      */
-    public Season(Integer id, String startDate, String endDate, Integer currentMatchday, Object winner) {
+    public Season(Integer id, String startDate, String endDate, Integer currentMatchday, String winner) {
         super();
         this.id = id;
         this.startDate = startDate;
@@ -86,7 +90,7 @@ public class Season {
         return winner;
     }
 
-    public void setWinner(Object winner) {
+    public void setWinner(String winner) {
         this.winner = winner;
     }
 

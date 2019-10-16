@@ -10,21 +10,15 @@ import android.os.Bundle;
 
 import android.view.View;
 
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
-import com.moringa.gohire.Competition;
-import com.moringa.gohire.MyStandingAdapter;
-import com.moringa.gohire.Player;
 import com.moringa.gohire.R;
-import com.moringa.gohire.Scorer;
+import com.moringa.gohire.models.Scorer;
 import com.moringa.gohire.ScorersApi;
 import com.moringa.gohire.ScorersClient;
-import com.moringa.gohire.ScorersResponse;
-import com.moringa.gohire.Team;
+import com.moringa.gohire.models.ScorersResponse;
 import com.moringa.gohire.adapters.ScorersListAdapter;
 ;
 

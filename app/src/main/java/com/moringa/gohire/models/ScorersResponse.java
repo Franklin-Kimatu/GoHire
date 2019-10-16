@@ -1,5 +1,5 @@
 
-package com.moringa.gohire;
+package com.moringa.gohire.models;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
@@ -8,24 +8,23 @@ import com.google.gson.annotations.SerializedName;
 import org.parceler.Parcel;
 
 @Parcel
-
 public class ScorersResponse {
 
     @SerializedName("count")
     @Expose
-    private Integer count;
+     Integer count;
     @SerializedName("filters")
     @Expose
-    private Filters filters;
+     Filters filters;
     @SerializedName("competition")
     @Expose
-    private Competition competition;
+     Competition competition;
     @SerializedName("season")
     @Expose
-    private Season season;
+     Season season;
     @SerializedName("scorers")
     @Expose
-    private List<Scorer> scorers = null;
+     List<Scorer> scorers = null;
 
     /**
      * No args constructor for use in serialization

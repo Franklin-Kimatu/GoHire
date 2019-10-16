@@ -1,5 +1,5 @@
 
-package com.moringa.gohire;
+package com.moringa.gohire.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -7,12 +7,11 @@ import com.google.gson.annotations.SerializedName;
 import org.parceler.Parcel;
 
 @Parcel
-
 public class Filters {
 
     @SerializedName("limit")
     @Expose
-    private Integer limit;
+     Integer limit;
 
     /**
      * No args constructor for use in serialization

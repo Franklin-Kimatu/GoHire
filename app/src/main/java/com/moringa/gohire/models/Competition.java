@@ -1,5 +1,5 @@
 
-package com.moringa.gohire;
+package com.moringa.gohire.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -11,22 +11,22 @@ public class Competition {
 
     @SerializedName("id")
     @Expose
-    private Integer id;
+     Integer id;
     @SerializedName("area")
     @Expose
-    private Area area;
+     Area area;
     @SerializedName("name")
     @Expose
-    private String name;
+     String name;
     @SerializedName("code")
     @Expose
-    private String code;
+     String code;
     @SerializedName("plan")
     @Expose
-    private String plan;
+     String plan;
     @SerializedName("lastUpdated")
     @Expose
-    private String lastUpdated;
+     String lastUpdated;
 
     /**
      * No args constructor for use in serialization

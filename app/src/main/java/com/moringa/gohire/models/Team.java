@@ -1,22 +1,21 @@
 
-package com.moringa.gohire;
+package com.moringa.gohire.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import org.parceler.Parcel;
+import org.parceler.Transient;
 
 @Parcel
-
-
 public class Team {
 
     @SerializedName("id")
     @Expose
-    private Integer id;
+     Integer id;
     @SerializedName("name")
     @Expose
-    private String name;
+     String name;
 
     /**
      * No args constructor for use in serialization

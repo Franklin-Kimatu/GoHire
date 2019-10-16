@@ -1,44 +1,46 @@
 
-package com.moringa.gohire;
+package com.moringa.gohire.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import org.parceler.Parcel;
 
+import java.util.List;
+
 @Parcel
 public class Player {
 
     @SerializedName("id")
     @Expose
-    private Integer id;
+     Integer id;
     @SerializedName("name")
     @Expose
-    private String name;
+     String name;
     @SerializedName("firstName")
     @Expose
-    private String firstName;
+     String firstName;
     @SerializedName("lastName")
     @Expose
-    private Object lastName;
+     String lastName;
     @SerializedName("dateOfBirth")
     @Expose
-    private String dateOfBirth;
+     String dateOfBirth;
     @SerializedName("countryOfBirth")
     @Expose
-    private String countryOfBirth;
+     String countryOfBirth;
     @SerializedName("nationality")
     @Expose
-    private String nationality;
+     String nationality;
     @SerializedName("position")
     @Expose
-    private String position;
+     String position;
     @SerializedName("shirtNumber")
     @Expose
-    private Integer shirtNumber;
+     Integer shirtNumber;
     @SerializedName("lastUpdated")
     @Expose
-    private String lastUpdated;
+     String lastUpdated;
 
     /**
      * No args constructor for use in serialization
@@ -60,7 +62,7 @@ public class Player {
      * @param lastUpdated
      * @param firstName
      */
-    public Player(Integer id, String name, String firstName, Object lastName, String dateOfBirth, String countryOfBirth, String nationality, String position, Integer shirtNumber, String lastUpdated) {
+    public Player(Integer id, String name, String firstName, String lastName, String dateOfBirth, String countryOfBirth, String nationality, String position, Integer shirtNumber, String lastUpdated) {
         super();
         this.id = id;
         this.name = name;
@@ -98,11 +100,11 @@ public class Player {
         this.firstName = firstName;
     }
 
-    public Object getLastName() {
+    public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(Object lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
