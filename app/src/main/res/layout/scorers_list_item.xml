@@ -4,12 +4,52 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/scorerImageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/footballpayer"
-        android:scaleType="centerCrop"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/scorerImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/footballpayer"
+            android:scaleType="centerCrop"/>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/dateOfBirthTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1990-09-09"
+        android:layout_marginLeft="50sp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"/>
+    <TextView
+        android:id="@+id/goalsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="50sp"
+        android:text="Belgium" />
+
+    <TextView
+        android:id="@+id/nationalityTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nationality"
+        android:layout_marginLeft="50sp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"/>
+</LinearLayout>
+
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,18 +65,15 @@
             android:textSize="18sp"
             android:text="Scorers name"
             android:textColor="@color/colorBlue"/>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/nationalityTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nationality"
-                android:layout_marginRight="50sp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"/>
+
+
         </RelativeLayout>
     </LinearLayout>
+
+
 </LinearLayout>
