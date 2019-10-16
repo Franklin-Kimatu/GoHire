@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,13 +26,14 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class BlankFragment extends Fragment {
-    @BindView(R.id.scorerImageView) ImageView mScorerImageView;
+//    @BindView(R.id.scorerImageView) ImageView mScorerImageView;
     @BindView(R.id.scorersNameTextView) TextView mScorerNameTextView;
     @BindView(R.id.nationalityTextView) TextView mScorerNationalityTextView;
     @BindView(R.id.dateOfBirthTextView) TextView mDateOfBirthTextView;
     @BindView(R.id.countryBirthTextVIew) TextView mCountryTextView;
-    @BindView(R.id.shirtNumberTextView) TextView mShirtNumberTextView;
+//    @BindView(R.id.shirtNumberTextView) TextView mShirtNumberTextView;
     @BindView(R.id.positionTextVIew) TextView mPositionTextView;
+    @BindView(R.id.saveScorerButton) Button mSaveScorerButton;
 
     private Scorer mScorer;
 
@@ -68,7 +70,7 @@ public class BlankFragment extends Fragment {
         mScorerNationalityTextView.setText(mScorer.getPlayer().getNationality());
         mDateOfBirthTextView.setText(mScorer.getPlayer().getDateOfBirth());
         mCountryTextView.setText(mScorer.getPlayer().getCountryOfBirth());
-        mShirtNumberTextView.setText(mScorer.getPlayer().getShirtNumber());
+//        mShirtNumberTextView.setText(mScorer.getPlayer().getShirtNumber());
         mPositionTextView.setText(mScorer.getPlayer().getPosition());
         return view;
 
