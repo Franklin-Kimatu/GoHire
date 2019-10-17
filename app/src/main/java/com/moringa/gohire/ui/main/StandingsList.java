@@ -87,13 +87,13 @@ public class StandingsList extends AppCompatActivity {
 
 
                 }else{
-                    showFailureMessage();
+                    showUnsuccessfulMessage();
                 }
             }
 
             @Override
             public void onFailure(Call<ScorersResponse> call1,Throwable t){
-                showUnsuccessfulMessage();
+                showFailureMessage();
                 hideProgressBar();
             }
         });
@@ -105,7 +105,7 @@ public class StandingsList extends AppCompatActivity {
     }
 
     private void showUnsuccessfulMessage() {
-        mErrorTextView.setText("Something went wrong. Please try again later");
+        mErrorTextView.setText("Something went wrong.You are not permitted to this year's data Please try again later");
         mErrorTextView.setVisibility(View.VISIBLE);
     }
 
