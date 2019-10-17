@@ -65,17 +65,6 @@
                     android:textStyle="bold"
                     android:layout_marginBottom="10dp"
                     android:gravity="center"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Secondname"
-                    android:layout_marginLeft="90dp"
-                    android:id="@+id/secondNameTextView"
-                    android:textColor="@color/colorBlue"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="center"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -111,16 +100,18 @@
                     android:textStyle="bold"
                     android:gravity="center"
                     android:layout_marginBottom="10dp"/>
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="12"-->
-<!--                    android:id="@+id/shirtNumberTextView"-->
-<!--                    android:textColor="@color/colorBlue"-->
-<!--                    android:textSize="15sp"-->
-<!--                    android:textStyle="bold"-->
-<!--                    android:gravity="center"-->
-<!--                    android:layout_marginBottom="10dp"/>-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12"
+                    android:id="@+id/shirtNumberTextView"
+                    android:textColor="@color/colorBlue"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="90dp"
+
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
