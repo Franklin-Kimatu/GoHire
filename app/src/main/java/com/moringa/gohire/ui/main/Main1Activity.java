@@ -2,13 +2,9 @@ package com.moringa.gohire.ui.main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
-import android.app.Activity;
-import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -16,17 +12,15 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.moringa.gohire.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class Main1Activity extends AppCompatActivity implements View.OnClickListener{
 
     private static final String[] years =new String[]{"2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019"};
 
@@ -65,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if(v==mNav_Pay){
             String stage =mEditTextTeam.getText().toString();
-            Intent intent = new Intent(MainActivity.this,StandingsList.class);
+            Intent intent = new Intent(Main1Activity.this,StandingsList.class);
             intent.putExtra("stage",stage);
             startActivity(intent);
         }
