@@ -59,9 +59,14 @@ public class Main1Activity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         if(v==mNav_Pay){
             String stage =mEditTextTeam.getText().toString();
-            Intent intent = new Intent(Main1Activity.this,StandingsList.class);
-            intent.putExtra("stage",stage);
-            startActivity(intent);
+            if(stage.isEmpty() || stage.length() != 4){
+                Toast.makeText(Main1Activity.this,"Year value is invalid",Toast.LENGTH_SHORT).show();
+            }else{
+                Intent intent = new Intent(Main1Activity.this,StandingsList.class);
+                intent.putExtra("stage",stage);
+                startActivity(intent);
+            }
+
         }
     }
 
