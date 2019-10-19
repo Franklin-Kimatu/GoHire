@@ -5,7 +5,7 @@ import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
 //import androidx.test.ext.junit.runners.AndroidJUnit4;
 
-import com.moringa.gohire.ui.main.MainActivity;
+import com.moringa.gohire.ui.main.Main1Activity;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -21,10 +21,10 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class MainActivityTest {
+public class Main1ActivityTest {
 
     @Rule
-    public ActivityTestRule<MainActivity>activityActivityTestRule = new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<Main1Activity>activityActivityTestRule = new ActivityTestRule<>(Main1Activity.class);
 
     @Test
     public void validateEditText(){
