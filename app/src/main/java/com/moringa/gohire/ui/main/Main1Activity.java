@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.moringa.gohire.R;
 
 import butterknife.BindView;
@@ -31,6 +32,7 @@ public class Main1Activity extends AppCompatActivity implements View.OnClickList
     @BindView(R.id.editTextTeam) AutoCompleteTextView mEditTextTeam;
 
     @BindView(R.id.buttonPay) Button mNav_Pay;
+    private FirebaseAuth mFirebaseAuth;
 
 
     @Override
@@ -39,6 +41,8 @@ public class Main1Activity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        mFirebaseAuth = FirebaseAuth.getInstance();
+
 
        ArrayAdapter<String> adapter =new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,years);
        mEditTextTeam.setAdapter(adapter);
@@ -46,14 +50,6 @@ public class Main1Activity extends AppCompatActivity implements View.OnClickList
 
         mNav_Pay.setOnClickListener(this);
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater =getMenuInflater();
-        inflater.inflate(R.menu.dropdown,menu);
-        return true;
-    }
-
 
     @Override
     public void onClick(View v) {
@@ -68,18 +64,30 @@ public class Main1Activity extends AppCompatActivity implements View.OnClickList
             }
 
         }
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.dropdown,menu);
+        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch(item.getItemId()){
-            case R.id.addMember:
-                Toast.makeText(this,"Member will be added to the database",Toast.LENGTH_SHORT).show();
-                return true;
+        switch (item.getItemId()){
+            case R.id.logOutMenu :{
+                Logout();
             }
-            return super.onOptionsItemSelected(item);
         }
+        return super.onOptionsItemSelected(item);
+    }
 
+    public void Logout(){
 
+        mFirebaseAuth.signOut();
+        finish();
+        startActivity(new Intent(Main1Activity.this,LoginActivity.class));
 
+    }
 }
