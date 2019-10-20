@@ -55,7 +55,7 @@ public class RegistryActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
-        progressDialog.setMessage("Registering User....");
+        progressDialog.setMessage("Registering User and logging in....");
         progressDialog.show();
 
         mFireBaseAuth.createUserWithEmailAndPassword(email,password)
@@ -68,6 +68,7 @@ public class RegistryActivity extends AppCompatActivity implements View.OnClickL
                             startActivity(new Intent(RegistryActivity.this,LoginActivity.class));
                         }else{
                             Toast.makeText(RegistryActivity.this,"Could not register.Please try again",Toast.LENGTH_SHORT).show();
+                            progressDialog.hide();
 
                         }
                     }
