@@ -46,15 +46,6 @@
         android:completionThreshold="1"
         android:completionHint="Select a year"/>
 
-    <Button
-        android:id="@+id/logOutButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Log out"
-        android:layout_centerHorizontal="true"
-       android:layout_below="@+id/editTextTeam"
-        android:background="@drawable/roundedbutton"/>
-
 
     <Button
         android:id="@+id/buttonPay"
