@@ -1,65 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.main.RegistryActivity"
     android:background="@drawable/gradient">
-    <ImageView
-        android:layout_marginTop="38dp"
-        android:id="@+id/iconImageView"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/ic_account_user" />
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_margin="30dp">
-
-
-
-
-        <EditText
-            android:hint="Username"
-            android:inputType="textPersonName"
-            android:id="@+id/nameCreateEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_account_user"/>
-
-        <EditText
-            android:hint="Email"
+        android:layout_height="wrap_content">
+        <ImageView
             android:layout_marginTop="20dp"
-            android:inputType="textEmailAddress"
-            android:id="@+id/emailCreateEditText"
+            android:id="@+id/iconImageView"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_centerHorizontal="true"
+            app:srcCompat="@drawable/ic_account_user" />
+
+        <LinearLayout
             android:layout_width="match_parent"
+            android:layout_marginTop="200dp"
+            android:layout_below="@id/iconImageView"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_email_black_24dp"/>
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="30dp">
 
-        <EditText
-            android:hint="Password"
-            android:layout_marginTop="20dp"
 
-            android:inputType="textPassword"
-            android:id="@+id/passwordCreateEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_lock_black_24dp"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/submitDetailsButton"
-            android:layout_marginTop="20dp"
-            android:text="Submit"
-            android:background="@drawable/roundedbutton"
-            android:elevation="20dp"/>
-    </LinearLayout>
 
-</RelativeLayout>
+            <EditText
+                android:hint="Username"
+                android:inputType="textPersonName"
+                android:id="@+id/nameCreateEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_edittext"
+                android:layout_marginTop="30dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/ic_account_user"/>
+
+            <EditText
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:id="@+id/emailCreateEditText"
+                android:layout_width="match_parent"
+                android:background="@drawable/rounded_edittext"
+                android:padding="10dp"
+                android:layout_marginTop="30dp"
+
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_email_black_24dp"/>
+
+            <EditText
+                android:hint="Password"
+                android:layout_marginTop="30dp"
+
+                android:inputType="textPassword"
+                android:id="@+id/passwordCreateEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_edittext"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/ic_lock_black_24dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/submitDetailsButton"
+                android:layout_marginTop="30dp"
+                android:text="Submit"
+                android:background="@drawable/roundedbutton"
+                android:elevation="20dp"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</ScrollView>
