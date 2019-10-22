@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "611785599757",
+    "firebase_url": "https://gohire-1b2d9.firebaseio.com",
+    "project_id": "gohire-1b2d9",
+    "storage_bucket": "gohire-1b2d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:611785599757:android:14e7d406fc9e41cf411e44",
+        "android_client_info": {
+          "package_name": "com.moringa.gohire"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "611785599757-9bm7eplv8tp9qmlbsvn983acvs8bm46l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moringa.gohire",
+            "certificate_hash": "8140607df564127dad9afa39191f58c009745bb4"
+          }
+        },
+        {
+          "client_id": "611785599757-32e55h2mfq6ia44aqjmkjpudqo858kjf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyQ6BxQ5qjwKyPpfEnXwWhSugGRtPeFA4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "611785599757-32e55h2mfq6ia44aqjmkjpudqo858kjf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
