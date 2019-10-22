@@ -88,7 +88,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String password = mPasswordEditText.getText().toString().trim();
 
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
-            Toast.makeText(LoginActivity.this,"Field are empty",Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this,"Field is empty",Toast.LENGTH_SHORT).show();
         }else{
 
             progressDialog.setMessage("Logging in...");
