@@ -28,8 +28,8 @@ import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
-    @BindView(R.id.logoImage) ImageView mLogoImage;
-    @BindView(R.id.nameEditText) EditText mNameEditText;
+    @BindView(R.id.logoImage) TextView mLogoImage;
+
     @BindView(R.id.emailEditText) EditText mEmailEditText;
     @BindView(R.id.passwordEditText) EditText mPasswordEditText;
     @BindView(R.id.loginButton) Button mLoginButton;
