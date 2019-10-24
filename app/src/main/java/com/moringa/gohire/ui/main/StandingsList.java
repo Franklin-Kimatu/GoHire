@@ -23,7 +23,8 @@ import com.moringa.gohire.adapters.ScorersListAdapter;
 ;
 
 
-
+import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import butterknife.BindView;
@@ -38,6 +39,7 @@ public class StandingsList extends AppCompatActivity {
     @BindView(R.id.teamTextView) TextView mTeamTextView;
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
+    @BindView(R.id.dateTextView) TextView mDateTextView;
 
     private ScorersListAdapter mAdapter;
     public List<Scorer> scorers;
@@ -51,9 +53,11 @@ public class StandingsList extends AppCompatActivity {
 
         Intent intent = getIntent();
         String stage = intent.getStringExtra("stage");
+        Calendar calendar = Calendar.getInstance();
+        String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
 
-
-        mTeamTextView.setText("These are the top scorers in the year "+ stage);
+        mDateTextView.setText(currentDate);
+        mTeamTextView.setText("Top scorers year, "+ stage);
 
 
         ScorersApi  client = ScorersClient.getHttpClient();
