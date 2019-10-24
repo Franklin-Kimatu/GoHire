@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.main.StandingsList"
-    android:background="@drawable/gradient"
+    android:background="@color/primary_dark"
  >
 
     <androidx.recyclerview.widget.RecyclerView
@@ -18,13 +18,23 @@
         android:id="@+id/recyclerView"
         android:background="@drawable/gradient"/>
     <TextView
-        android:id="@+id/teamTextView"
+        android:id="@+id/dateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="16dp"
-        android:background="@drawable/gradient"
+        android:text="Date"
+        android:textSize="18dp"
+        android:textColor="@color/colorWhite"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/teamTextView"
+        android:text="here"
+        android:layout_below="@+id/dateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@color/primary_dark"
         android:textColor="@color/colorWhite"/>
 
     <ListView
