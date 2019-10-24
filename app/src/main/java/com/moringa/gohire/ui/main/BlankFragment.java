@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +26,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BlankFragment extends Fragment {
+public class BlankFragment extends Fragment implements View.OnClickListener{
 //    @BindView(R.id.scorerImageView) ImageView mScorerImageView;
     @BindView(R.id.scorersNameTextView) TextView mScorerNameTextView;
     @BindView(R.id.firstNameTextView) TextView mFirstNameTextView;
@@ -34,13 +35,14 @@ public class BlankFragment extends Fragment {
     @BindView(R.id.countryBirthTextVIew) TextView mCountryTextView;
     @BindView(R.id.shirtNumberTextView) TextView mShirtNumberTextView;
     @BindView(R.id.positionTextVIew) TextView mPositionTextView;
-//    @BindView(R.id.rateScorerButton) Button mSaveScorerButton;
+    @BindView(R.id.rateScorerButton) Button mRateScorerButton;
 
     private Scorer mScorer;
 
     public BlankFragment() {
         // Required empty public constructor
     }
+
 
     public static BlankFragment newInstance(Scorer scorer){
         BlankFragment blankFragment = new BlankFragment();
@@ -78,4 +80,10 @@ public class BlankFragment extends Fragment {
 
     }
 
+    @Override
+    public void onClick(View v) {
+        if (v== mRateScorerButton){
+
+        }
+    }
 }

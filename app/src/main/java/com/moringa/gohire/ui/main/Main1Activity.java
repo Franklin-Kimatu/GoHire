@@ -2,6 +2,7 @@ package com.moringa.gohire.ui.main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -49,7 +50,13 @@ public class Main1Activity extends AppCompatActivity implements View.OnClickList
 
 
         mNav_Pay.setOnClickListener(this);
+
+
     }
+
+
+
+
 
     @Override
     public void onClick(View v) {

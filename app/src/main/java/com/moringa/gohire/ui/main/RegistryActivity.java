@@ -1,16 +1,21 @@
 package com.moringa.gohire.ui.main;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,6 +33,8 @@ public class RegistryActivity extends AppCompatActivity implements View.OnClickL
     @BindView(R.id.emailCreateEditText) EditText mCreateEmailEditText;
     @BindView(R.id.passwordCreateEditText) EditText mCreatePasswordEDitText;
     @BindView(R.id.submitDetailsButton) Button mSubmitDetailButton;
+    @BindView(R.id.iconImageView) ImageView mIconImageView;
+    @BindView(R.id.takePhotoTextView) TextView mTakePhotoTextView;
     private ProgressDialog progressDialog;
     private FirebaseAuth mFireBaseAuth;
 
@@ -41,7 +48,24 @@ public class RegistryActivity extends AppCompatActivity implements View.OnClickL
         progressDialog = new ProgressDialog(this);
 
         mSubmitDetailButton.setOnClickListener(this);
+
+        mIconImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent,0);
+            }
+        });
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Bitmap bitmap =(Bitmap)data.getExtras().get("data");
+        mIconImageView.setImageBitmap(bitmap);
+
+    }
+
     public  void RegisterUser(){
         String email = mCreateEmailEditText.getText().toString().trim();
         String password = mCreatePasswordEDitText.getText().toString().trim();
