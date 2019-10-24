@@ -34,7 +34,7 @@ public class BlankFragment extends Fragment {
     @BindView(R.id.countryBirthTextVIew) TextView mCountryTextView;
     @BindView(R.id.shirtNumberTextView) TextView mShirtNumberTextView;
     @BindView(R.id.positionTextVIew) TextView mPositionTextView;
-    @BindView(R.id.saveScorerButton) Button mSaveScorerButton;
+//    @BindView(R.id.rateScorerButton) Button mSaveScorerButton;
 
     private Scorer mScorer;
 
