@@ -5,58 +5,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.main.RegistryActivity"
-    android:background="@drawable/gradient">
+    android:background="@color/primary_dark">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
-            android:layout_marginTop="20dp"
-            android:id="@+id/iconImageView"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_centerHorizontal="true"
-            app:srcCompat="@drawable/ic_account_user" />
 
-        <LinearLayout
+
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="200dp"
-            android:layout_below="@id/iconImageView"
+            android:layout_marginTop="80dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:background="@drawable/rounded_border"
             android:layout_margin="30dp">
 
-
+            <ImageView
+                android:layout_marginTop="20dp"
+                android:id="@+id/iconImageView"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@drawable/ic_account_user" />
 
 
             <EditText
                 android:hint="Username"
+                android:layout_below="@+id/iconImageView"
                 android:inputType="textPersonName"
                 android:id="@+id/nameCreateEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_edittext"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="15dp"
                 android:padding="10dp"
                 android:drawableLeft="@drawable/ic_account_user"/>
 
             <EditText
                 android:hint="Email"
+                android:layout_below="@+id/nameCreateEditText"
                 android:inputType="textEmailAddress"
                 android:id="@+id/emailCreateEditText"
                 android:layout_width="match_parent"
                 android:background="@drawable/rounded_edittext"
                 android:padding="10dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="15dp"
 
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_email_black_24dp"/>
 
             <EditText
                 android:hint="Password"
-                android:layout_marginTop="30dp"
-
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/emailCreateEditText"
                 android:inputType="textPassword"
                 android:id="@+id/passwordCreateEditText"
                 android:layout_width="match_parent"
@@ -66,14 +69,18 @@
                 android:drawableLeft="@drawable/ic_lock_black_24dp"/>
 
             <Button
-                android:layout_width="match_parent"
+                android:layout_width="170dp"
+                android:layout_below="@+id/passwordCreateEditText"
+                android:layout_centerHorizontal="true"
                 android:layout_height="wrap_content"
                 android:id="@+id/submitDetailsButton"
                 android:layout_marginTop="30dp"
                 android:text="Submit"
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/colorWhite"
                 android:background="@drawable/roundedbutton"
                 android:elevation="20dp"/>
-        </LinearLayout>
+        </RelativeLayout>
 
     </RelativeLayout>
 
