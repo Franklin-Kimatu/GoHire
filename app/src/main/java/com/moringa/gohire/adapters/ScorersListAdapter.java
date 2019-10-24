@@ -55,7 +55,7 @@ public class ScorersListAdapter extends RecyclerView.Adapter<ScorersListAdapter.
         @BindView(R.id.scorersNameTextView) TextView mScorerNameTextView;
         @BindView(R.id.nationalityTextView) TextView mNationalityTextView;
         @BindView(R.id.goalsTextView) TextView mGoalsTextView;
-        @BindView(R.id.dateOfBirthTextView) TextView mDateOfBirthTextView;
+
 
         private Context mContext;
 
@@ -67,7 +67,6 @@ public class ScorersListAdapter extends RecyclerView.Adapter<ScorersListAdapter.
         }
         public void bindScorer(Scorer player){
             mScorerNameTextView.setText(player.getPlayer().getName());
-            mDateOfBirthTextView.setText("Date of birth: " +player.getPlayer().getDateOfBirth());
             mGoalsTextView.setText("Country of birth: "+player.getPlayer().getCountryOfBirth());
             mNationalityTextView.setText("Nationality: "+player.getPlayer().getNationality());
         }
