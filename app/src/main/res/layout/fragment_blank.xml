@@ -126,17 +126,25 @@
         </RelativeLayout>
     </LinearLayout>
 
-    <Button
+    <Spinner
 
+        android:id="@+id/rateSpinnerRate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/rateScorerButton"
-        android:background="@drawable/circular_button"
-        android:drawableLeft="@drawable/star_black_24dp"
-        android:text="RATE"
-        android:textColor="@color/colorWhite"
+
         android:layout_alignParentRight="true"
-        android:layout_marginTop="175dp"/>
+        android:layout_marginTop="175dp"
+        android:entries="@array/rates"
+        android:text="RATE"
+        android:textColor="@color/colorWhite" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/savePlayerButton"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/roundedbutton"
+        android:text="SAVE TO DATABASE"
+        android:textColor="@color/colorWhite"/>
 
 
 </RelativeLayout>
