@@ -12,8 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.firebase.client.Firebase;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.moringa.gohire.models.PPlayer;
 import com.moringa.gohire.models.Player;
 import com.moringa.gohire.R;
 import com.moringa.gohire.models.Scorer;
@@ -35,10 +41,11 @@ public class BlankFragment extends Fragment implements View.OnClickListener{
     @BindView(R.id.countryBirthTextVIew) TextView mCountryTextView;
     @BindView(R.id.shirtNumberTextView) TextView mShirtNumberTextView;
     @BindView(R.id.positionTextVIew) TextView mPositionTextView;
-    @BindView(R.id.rateScorerButton) Button mRateScorerButton;
+    @BindView(R.id.rateSpinnerRate ) Spinner mRateSpinner;
+    @BindView(R.id.savePlayerButton) Button mSavePlayerButton;
 
     private Scorer mScorer;
-
+    DatabaseReference databasePlayers;
     public BlankFragment() {
         // Required empty public constructor
     }
@@ -76,14 +83,21 @@ public class BlankFragment extends Fragment implements View.OnClickListener{
         mCountryTextView.setText("Country of birth: "+mScorer.getPlayer().getCountryOfBirth());
        mShirtNumberTextView.setText("Shirt number: "+String.valueOf(mScorer.getPlayer().getShirtNumber()));
         mPositionTextView.setText("Position: "+mScorer.getPlayer().getPosition());
+        mSavePlayerButton.setOnClickListener(this);
+
         return view;
 
     }
 
+
     @Override
     public void onClick(View v) {
-        if (v== mRateScorerButton){
+        if (v==mSavePlayerButton){
+            databasePlayers = FirebaseDatabase.getInstance().getReference("players");
+            databasePlayers.push().setValue(mScorer);
+            Toast.makeText(getContext(),"Player added",Toast.LENGTH_SHORT).show();
 
         }
+
     }
 }
