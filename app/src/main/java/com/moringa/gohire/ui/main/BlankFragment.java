@@ -43,8 +43,10 @@ public class BlankFragment extends Fragment implements View.OnClickListener{
     @BindView(R.id.positionTextVIew) TextView mPositionTextView;
     @BindView(R.id.rateSpinnerRate ) Spinner mRateSpinner;
     @BindView(R.id.savePlayerButton) Button mSavePlayerButton;
+    @BindView(R.id.goalsTextViewNew) TextView mGoalsTextViewNew;
 
     private Scorer mScorer;
+
     DatabaseReference databasePlayers;
     public BlankFragment() {
         // Required empty public constructor
@@ -83,6 +85,7 @@ public class BlankFragment extends Fragment implements View.OnClickListener{
         mCountryTextView.setText("Country of birth: "+mScorer.getPlayer().getCountryOfBirth());
        mShirtNumberTextView.setText("Shirt number: "+String.valueOf(mScorer.getPlayer().getShirtNumber()));
         mPositionTextView.setText("Position: "+mScorer.getPlayer().getPosition());
+        mGoalsTextViewNew.setText(String.valueOf(mScorer.getNumberOfGoals()));
         mSavePlayerButton.setOnClickListener(this);
 
         return view;

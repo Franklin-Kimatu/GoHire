@@ -86,6 +86,10 @@ public class Main1Activity extends AppCompatActivity implements View.OnClickList
             case R.id.logOutMenu :{
                 Logout();
             }
+            case R.id.searchPlayer :{
+                Intent intent = new Intent(Main1Activity.this,SearchActivity.class);
+                startActivity(intent);
+            }
         }
         return super.onOptionsItemSelected(item);
     }
