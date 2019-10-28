@@ -21,10 +21,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SearchActivity extends AppCompatActivity {
-    @BindView(R.id.headertextView) TextView mHeaderPlayerTextView;
-    @BindView(R.id.searchField) EditText mSearchField;
-    @BindView(R.id.searcIimageView2) ImageView mSearchImageView;
-    @BindView(R.id.recyclerViewResult_List) RecyclerView mRecyclerViewresult_List;
+    private EditText mSearchField;
+    private ImageView mSearchImageView;
+    private RecyclerView mSearchList;
     private DatabaseReference mScorerDatabase;
 
     @Override
@@ -33,41 +32,46 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
         mScorerDatabase = FirebaseDatabase.getInstance().getReference("players");
 
-        ButterKnife.bind(this);
+        mSearchField =(EditText)findViewById(R.id.searchField);
+        mSearchImageView =(ImageView) findViewById(R.id.searchIimageView2);
+        mSearchList =(RecyclerView) findViewById(R.id.recyclerViewResult_List);
+
+
         mSearchImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fireBaseUserSearch();
+//                fireBaseUserSearch();
             }
         });
     }
 
-    private void fireBaseUserSearch() {
-
-//        FirebaseRecyclerAdapter<Scorer,ScorersViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Scorer, ScorersViewHolder>(
-//                Scorer.class,R.layout.searchedlistitem,
-//                ScorersViewHolder.class,
-//                mScorerDatabase
+//    private void fireBaseUserSearch() {
+//
+//        FirebaseRecyclerAdapter<Scorer,ScorerViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Scorer, ScorerViewHolder>(
+//               Scorer.class,
+//               R.layout.searchedlistitem,
+//                ScorerViewHolder.class,
+//
 //        ) {
 //            @Override
-//            protected void onBindViewHolder(@NonNull ScorersViewHolder scorersViewHolder, int i, @NonNull Scorer scorer) {
+//            protected void onBindViewHolder(@NonNull ScorerViewHolder holder, int position, @NonNull Scorer model) {
 //
 //            }
 //
 //            @NonNull
 //            @Override
-//            public ScorersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+//            public ScorerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 //                return null;
 //            }
 //        }
-    }
+//    }
 
 
-    public class ScorersViewHolder extends RecyclerView.ViewHolder{
+    public class ScorerViewHolder extends RecyclerView.ViewHolder{
 
         View mView;
 
-        public ScorersViewHolder(@NonNull View itemView) {
+        public ScorerViewHolder(@NonNull View itemView) {
             super(itemView);
 
             mView = itemView;
