@@ -68,6 +68,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:20.0.0'
 
     //dependancies for the ui database
-    implementation 'com.firebaseui:firebase-ui-database:3.3.1'}
+    implementation 'com.firebaseui:firebase-ui-database:6.0.2'
+}
 
 apply plugin: 'com.google.gms.google-services'
