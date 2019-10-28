@@ -7,7 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.storage.StorageManager;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
@@ -18,10 +20,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.moringa.gohire.R;
 
 import butterknife.BindView;
@@ -37,13 +42,15 @@ public class RegistryActivity extends AppCompatActivity implements View.OnClickL
     @BindView(R.id.takePhotoTextView) TextView mTakePhotoTextView;
     private ProgressDialog progressDialog;
     private FirebaseAuth mFireBaseAuth;
-
+    private StorageReference mStorage;
+    private static final int CAMERA_REQUEST_CODE =1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registry);
         ButterKnife.bind(this);
         mFireBaseAuth = FirebaseAuth.getInstance();
+        mStorage = FirebaseStorage.getInstance().getReference();
 
         progressDialog = new ProgressDialog(this);
 
@@ -61,6 +68,7 @@ public class RegistryActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         Bitmap bitmap =(Bitmap)data.getExtras().get("data");
         mIconImageView.setImageBitmap(bitmap);
 
@@ -74,6 +82,7 @@ public class RegistryActivity extends AppCompatActivity implements View.OnClickL
             Toast.makeText(this,"Please enter valid email",Toast.LENGTH_SHORT).show();
             return;
         }
+
         if(TextUtils.isEmpty(password)){
             Toast.makeText(this,"Please enter password",Toast.LENGTH_SHORT).show();
             return;
