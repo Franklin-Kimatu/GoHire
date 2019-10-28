@@ -90,6 +90,10 @@ public class Main1Activity extends AppCompatActivity implements View.OnClickList
                 Intent intent = new Intent(Main1Activity.this,SearchActivity.class);
                 startActivity(intent);
             }
+            case R.id.viewFavorites : {
+                Intent intent =new Intent(Main1Activity.this,FavoritesActivity.class);
+                startActivity(intent);
+            }
         }
         return super.onOptionsItemSelected(item);
     }
