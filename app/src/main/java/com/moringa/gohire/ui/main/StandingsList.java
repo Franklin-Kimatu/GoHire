@@ -27,6 +27,7 @@ import com.moringa.gohire.adapters.ScorersListAdapter;
 
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -110,7 +111,7 @@ public class StandingsList extends AppCompatActivity {
    }
 
    Scorer deletedPlayer =null;
-
+    List<Scorer> archievedPlayers = new ArrayList<>();
 
    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT| ItemTouchHelper.RIGHT) {
        @Override
@@ -127,7 +128,7 @@ public class StandingsList extends AppCompatActivity {
                     deletedPlayer  = scorers.get(position);
                     scorers.remove(position);
                     mAdapter.notifyItemRemoved(position);
-                    Snackbar.make(mRecyclerView, "Deleted movie",Snackbar.LENGTH_LONG)
+                    Snackbar.make(mRecyclerView, "Deleted player",Snackbar.LENGTH_LONG)
                             .setAction("Undo", new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -137,6 +138,19 @@ public class StandingsList extends AppCompatActivity {
                             }).show();
                   break;
                 case ItemTouchHelper.RIGHT:
+                    Scorer playerName =scorers.get(position);
+                    archievedPlayers.add(playerName);
+                    scorers.remove(position);
+                    mAdapter.notifyItemRemoved(position);
+                    Snackbar.make(mRecyclerView, "Player archived",Snackbar.LENGTH_LONG)
+                            .setAction("Undo", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    archievedPlayers.remove(archievedPlayers.lastIndexOf(playerName));
+                                    scorers.add(position,playerName);
+                                    mAdapter.notifyItemInserted(position);
+                                }
+                            }).show();
                     break;
             }
        }
