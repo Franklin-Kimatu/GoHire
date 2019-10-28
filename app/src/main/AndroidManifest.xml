@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.main.SearchActivity"></activity>
+        <activity android:name=".ui.main.FavoritesActivity"></activity>
+        <activity android:name=".ui.main.SearchActivity" />
         <activity android:name=".ui.main.RegistryActivity" />
         <activity android:name=".ui.main.LoginActivity">
             <intent-filter>
