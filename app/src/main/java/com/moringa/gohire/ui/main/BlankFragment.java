@@ -7,7 +7,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.view.DragEvent;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -32,7 +35,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BlankFragment extends Fragment implements View.OnClickListener{
+public class BlankFragment extends Fragment implements View.OnClickListener, View.OnTouchListener, GestureDetector.OnGestureListener, View.OnDragListener {
 //    @BindView(R.id.scorerImageView) ImageView mScorerImageView;
     @BindView(R.id.scorersNameTextView) TextView mScorerNameTextView;
     @BindView(R.id.firstNameTextView) TextView mFirstNameTextView;
@@ -44,10 +47,16 @@ public class BlankFragment extends Fragment implements View.OnClickListener{
     @BindView(R.id.rateSpinnerRate ) Spinner mRateSpinner;
     @BindView(R.id.savePlayerButton) Button mSavePlayerButton;
     @BindView(R.id.goalsTextViewNew) TextView mGoalsTextViewNew;
+    @BindView(R.id.textTextView) TextView mTestTextView;
 
     private Scorer mScorer;
+    private Player mPlayer;
+    private GestureDetector mGestureDetector;
+
 
     DatabaseReference databasePlayers;
+
+
     public BlankFragment() {
         // Required empty public constructor
     }
@@ -67,6 +76,10 @@ public class BlankFragment extends Fragment implements View.OnClickListener{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mScorer = Parcels.unwrap(getArguments().getParcelable("scorer"));
+        mPlayer =  Parcels.unwrap(getArguments().getParcelable("player"));
+
+//        mScorerNameTextView.setOnTouchListener(this);
+        mGestureDetector = new GestureDetector(getContext(),this);
     }
 
     @Override
@@ -83,7 +96,7 @@ public class BlankFragment extends Fragment implements View.OnClickListener{
         mScorerNationalityTextView.setText("Nationality: "+mScorer.getPlayer().getNationality());
         mDateOfBirthTextView.setText("DOB: "+mScorer.getPlayer().getDateOfBirth());
         mCountryTextView.setText("Country of birth: "+mScorer.getPlayer().getCountryOfBirth());
-       mShirtNumberTextView.setText("Shirt number: "+String.valueOf(mScorer.getPlayer().getShirtNumber()));
+        mShirtNumberTextView.setText("Shirt number: "+String.valueOf(mScorer.getPlayer().getShirtNumber()));
         mPositionTextView.setText("Position: "+mScorer.getPlayer().getPosition());
         mGoalsTextViewNew.setText(String.valueOf(mScorer.getNumberOfGoals()));
         mSavePlayerButton.setOnClickListener(this);
@@ -98,9 +111,97 @@ public class BlankFragment extends Fragment implements View.OnClickListener{
         if (v==mSavePlayerButton){
             databasePlayers = FirebaseDatabase.getInstance().getReference("players");
             databasePlayers.push().setValue(mScorer);
-            Toast.makeText(getContext(),"Player added",Toast.LENGTH_SHORT).show();
+//            databaseSports = FirebaseDatabase.getInstance().getReference("sports");
+//            databaseSports.push().setValue(mPlayer);
+            Toast.makeText(getContext(),"Sports added to favorites",Toast.LENGTH_SHORT).show();
+
+            //Toast.makeText(getContext(),"Player added to favorites",Toast.LENGTH_SHORT).show();
 
         }
 
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+
+            mGestureDetector.onTouchEvent(event);
+            return true;
+
+
+    }
+
+    @Override
+    public boolean onDown(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+
+        View.DragShadowBuilder builder = new View.DragShadowBuilder(mScorerNameTextView);
+        mScorerNameTextView.startDrag(null,
+                builder,null,0);
+
+        builder.getView().setOnDragListener(this);
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        return false;
+    }
+
+    @Override
+    public boolean onDrag(View v, DragEvent event) {
+
+        switch(event.getAction()) {
+
+            case DragEvent.ACTION_DRAG_STARTED:
+
+                return true;
+
+            case DragEvent.ACTION_DRAG_ENTERED:
+                return true;
+
+            case DragEvent.ACTION_DRAG_LOCATION:
+
+                return true;
+
+            case DragEvent.ACTION_DRAG_EXITED:
+
+                return true;
+
+            case DragEvent.ACTION_DROP:
+
+
+
+                return true;
+
+            case DragEvent.ACTION_DRAG_ENDED:
+
+
+
+                return true;
+
+            // An unknown action type was received.
+            default:
+                break;
+
+        }
+        return false;
     }
 }
