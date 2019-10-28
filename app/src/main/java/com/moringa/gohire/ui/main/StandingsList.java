@@ -1,7 +1,9 @@
 package com.moringa.gohire.ui.main;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -101,7 +103,30 @@ public class StandingsList extends AppCompatActivity {
                 hideProgressBar();
             }
         });
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        itemTouchHelper.attachToRecyclerView(mRecyclerView);
    }
+
+   ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT| ItemTouchHelper.RIGHT) {
+       @Override
+       public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+           return false;
+       }
+
+       @Override
+       public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+           int position = viewHolder.getAdapterPosition();
+            switch (direction){
+                case ItemTouchHelper.LEFT:
+                    scorers.remove(position);
+                    mAdapter.notifyItemRemoved(position);
+                  break;
+                case ItemTouchHelper.RIGHT:
+                    break;
+            }
+       }
+   };
 
     private void showFailureMessage() {
         mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
