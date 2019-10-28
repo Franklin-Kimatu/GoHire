@@ -29,7 +29,7 @@
         android:layout_marginRight="100dp"/>
 
     <ImageView
-        android:id="@+id/searcIimageView2"
+        android:id="@+id/searchIimageView2"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_alignParentRight="true"
