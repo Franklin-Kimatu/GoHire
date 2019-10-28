@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
+import com.google.android.material.snackbar.Snackbar;
 import com.moringa.gohire.R;
 import com.moringa.gohire.models.Scorer;
 import com.moringa.gohire.ScorersApi;
@@ -108,6 +109,9 @@ public class StandingsList extends AppCompatActivity {
         itemTouchHelper.attachToRecyclerView(mRecyclerView);
    }
 
+   Scorer deletedPlayer =null;
+
+
    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT| ItemTouchHelper.RIGHT) {
        @Override
        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
@@ -119,8 +123,18 @@ public class StandingsList extends AppCompatActivity {
            int position = viewHolder.getAdapterPosition();
             switch (direction){
                 case ItemTouchHelper.LEFT:
+
+                    deletedPlayer  = scorers.get(position);
                     scorers.remove(position);
                     mAdapter.notifyItemRemoved(position);
+                    Snackbar.make(mRecyclerView, "Deleted movie",Snackbar.LENGTH_LONG)
+                            .setAction("Undo", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    scorers.add(position,deletedPlayer);
+                                    mAdapter.notifyItemInserted(position);
+                                }
+                            }).show();
                   break;
                 case ItemTouchHelper.RIGHT:
                     break;
