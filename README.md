@@ -22,6 +22,10 @@ We use SemVer for versioning. For the versions available, see the tags on this r
 Authors
 Kimatu Franklin - Initial work
 
+## Bugs
+* Displaying the favorite players that are added by the user.
+* Implementing the search widget for users to search a player and the attribute.
+
 
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details
